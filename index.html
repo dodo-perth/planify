@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planify - Easy Calendar Planning</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.7.1/index.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
-        body {
+        body, html {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            background-color: #f4f4f4;
+        }
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            padding-top: 70px;
         }
         h1 {
             font-size: 2.5em;
@@ -23,35 +31,127 @@
             margin-bottom: 1em;
         }
         .demo {
-            background-color: #f4f4f4;
+            background-color: white;
             border-radius: 8px;
             padding: 20px;
             margin-top: 2em;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
         }
         #typewriter {
             font-family: monospace;
             font-size: 1.2em;
             min-height: 3em;
+            margin-bottom: 20px;
         }
         .highlight-person { background-color: #ffcccb; }
         .highlight-location { background-color: #90ee90; }
         .highlight-time { background-color: #add8e6; }
+        .calendar-form {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        .calendar-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-size: 1em;
+        }
+        .calendar-form input[type="text"]:focus {
+            outline: none;
+            border-bottom-color: #4285f4;
+        }
+        .form-tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .form-tabs button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #5f6368;
+        }
+        .form-tabs button.active {
+            color: #4285f4;
+            border-bottom: 2px solid #4285f4;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .blog-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Planify</h1>
-        <p>Add events to your calendar using natural language</p>
-    </header>
-    
-    <main>
-        <p>Planify is a powerful extension for Google Calendar and other popular calendar apps. It uses advanced language processing to make adding events as easy as typing a sentence.</p>
+    <nav class="navbar">
+        <a href="#">Planify</a>
+        <a href="https://dodo-perth.github.io/" class="blog-icon" target="_blank" title="Visit my blog">B</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Planify</h1>
+            <p>Add events to your calendar using natural language</p>
+        </header>
         
-        <div class="demo">
-            <p>See how it works:</p>
-            <div id="typewriter"></div>
-        </div>
-    </main>
+        <main>
+            <div class="demo">
+                <div id="typewriter"></div>
+                <div class="calendar-form">
+                    <div class="form-tabs">
+                        <button class="active">Event</button>
+                        <button>Reminder</button>
+                        <button>Task</button>
+                    </div>
+                    <input type="text" placeholder="Add title">
+                    <input type="text" placeholder="Add time">
+                    <input type="text" placeholder="Add location">
+                </div>
+            </div>
+
+            <section class="product-details">
+                <h2>Why Planify?</h2>
+                <p>Planify is a revolutionary calendar extension that simplifies event creation using natural language processing. Here's what makes it special:</p>
+                <ul>
+                    <li>Intuitive Input: Just type your plans as you would tell a friend, and Planify does the rest.</li>
+                    <li>Smart Recognition: Automatically identifies people, places, and times in your text.</li>
+                    <li>Cross-Platform: Works seamlessly with Google Calendar and other popular calendar apps.</li>
+                    <li>Time-Saving: Reduce the time spent on manual event creation and focus on what matters.</li>
+                </ul>
+                <p>Coming soon for Mac, Windows, and mobile devices. Stay tuned for updates!</p>
+            </section>
+        </main>
+    </div>
     
     <script>
         new TypeIt("#typewriter", {
@@ -65,6 +165,12 @@
                     .replace("Curtin University", '<span class="highlight-location">Curtin University</span>')
                     .replace("tomorrow 10pm", '<span class="highlight-time">tomorrow 10pm</span>');
                 instance.getElement().innerHTML = highlightedText;
+                
+                setTimeout(() => {
+                    document.querySelector('input[placeholder="Add title"]').value = "Meet Johnson";
+                    document.querySelector('input[placeholder="Add time"]').value = "tomorrow 10pm";
+                    document.querySelector('input[placeholder="Add location"]').value = "Curtin University";
+                }, 1000);
             }
         }).go();
     </script>
