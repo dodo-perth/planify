@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planify - Easy Calendar Planning</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.7.1/index.umd.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .demo {
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 2em;
+        }
+        #typewriter {
+            font-family: monospace;
+            font-size: 1.2em;
+            min-height: 3em;
+        }
+        .highlight-person { background-color: #ffcccb; }
+        .highlight-location { background-color: #90ee90; }
+        .highlight-time { background-color: #add8e6; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Planify</h1>
+        <p>Add events to your calendar using natural language</p>
+    </header>
+    
+    <main>
+        <p>Planify is a powerful extension for Google Calendar and other popular calendar apps. It uses advanced language processing to make adding events as easy as typing a sentence.</p>
+        
+        <div class="demo">
+            <p>See how it works:</p>
+            <div id="typewriter"></div>
+        </div>
+    </main>
+    
+    <script>
+        new TypeIt("#typewriter", {
+            strings: "I will meet Johnson in the Curtin University, tomorrow 10pm.",
+            speed: 50,
+            cursor: true,
+            afterComplete: async (instance) => {
+                const text = instance.getElement().innerHTML;
+                const highlightedText = text
+                    .replace("Johnson", '<span class="highlight-person">Johnson</span>')
+                    .replace("Curtin University", '<span class="highlight-location">Curtin University</span>')
+                    .replace("tomorrow 10pm", '<span class="highlight-time">tomorrow 10pm</span>');
+                instance.getElement().innerHTML = highlightedText;
+            }
+        }).go();
+    </script>
+</body>
+</html>
