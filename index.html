@@ -3,212 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planify - AI-Powered Calendar Assistant</title>
+    <title>Planify - Insanely Smart Calendar Assistant</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/8.7.1/index.umd.min.js"></script>
-    <style>
-        body, html {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #4285f4;
-            text-decoration: none;
-        }
-        .blog-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #4285f4;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-        .main-content {
-            display: flex;
-            align-items: flex-start;
-        }
-        .demo {
-            flex: 1;
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            margin-right: 40px;
-        }
-        .content {
-            flex: 1;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            line-height: 1.2;
-        }
-        p {
-            font-size: 1.1em;
-            margin-bottom: 1.5em;
-            max-width: 600px;
-        }
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .cta-button {
-            font-size: 1.1em;
-            text-decoration: none;
-            color: #4285f4;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        .cta-button::before {
-            content: '→';
-            margin-right: 10px;
-            font-size: 1.2em;
-        }
-        #typewriter {
-            font-family: monospace;
-            font-size: 1em;
-            min-height: 3em;
-            margin-bottom: 20px;
-            color: #4285f4;
-        }
-        .highlight-person { background-color: #ffcccb; }
-        .highlight-location { background-color: #90ee90; }
-        .highlight-time { background-color: #add8e6; }
-        .calendar-form {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        .calendar-form input[type="text"],
-        .calendar-form textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            font-size: 0.9em;
-            box-sizing: border-box;
-        }
-        .calendar-form input[type="text"]:focus,
-        .calendar-form textarea:focus {
-            outline: none;
-            border-color: #4285f4;
-        }
-        .planify-button {
-            background-color: #4285f4;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1em;
-            width: 100%;
-        }
-        .planify-button:hover {
-            background-color: #3367d6;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <a href="#" class="logo">dodo-perth</a>
-            <a href="https://dodo-perth.github.io/" class="blog-icon" target="_blank" title="Visit my blog">B</a>
-        </nav>
+    <header class="navbar">
+        <a href="#" class="logo">dodo-perth</a>
+        <a href="https://dodo-perth.github.io/" class="blog-icon" target="_blank" title="Visit my blog"></a>
+    </header>
 
+    <main class="container">
         <div class="main-content">
-            <div class="demo">
-                <div id="typewriter"></div>
-                <div class="calendar-form">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" id="title" placeholder="Event Title">
-                    </div>
-                    <div class="form-group">
-                        <label for="when">When</label>
-                        <input type="text" id="when" placeholder="Date and Time">
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" id="location" placeholder="Event Location">
-                    </div>
-                    <div class="form-group">
-                        <label for="details">Details</label>
-                        <textarea id="details" placeholder="Event details" rows="2"></textarea>
-                    </div>
-                    <button class="planify-button">Planify</button>
-                </div>
-            </div>
-            <div class="content">
-                <h1>Planify</h1>
-                <p class="subtitle">Insanely smart calendar assistant</p>
-                <p>Transform text into calendar events with AI-powered simplicity. Control your schedule with intuitive drag, translate, and keyboard shortcuts.</p>
+            <section class="demo">
+                <div id="typewriter" aria-live="polite"></div>
+                <form class="calendar-form">
+                  <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location">
+                  </div>
+                  <div class="form-group">
+                    <label for="when">When</label>
+                    <input type="text" id="when" name="when">
+                  </div>
+                  <div class="form-group">
+                    <label for="details">Details</label>
+                    <textarea id="details" name="details"></textarea>
+                  </div>
+                  <button type="button" class="planify-button">Planify</button>
+                </form>
+            </section>
+
+            <section class="content">
+                <h1>Planify<span class="accent-dots">+</span></h1>
+                <p class="subtitle">Effortless Scheduling with AI-Powered Language Processing</p>
+                <p class="description">
+                    Transform the way you plan your events with Planify. Our smart extension integrates seamlessly with Google Calendar and other popular calendar apps, allowing you to add events by simply typing or dragging text. Say goodbye to manual entry and let AI handle the rest!
+                </p>
                 <div class="cta-buttons">
-                    <a href="#" class="cta-button">Join the waitlist</a>
-                    <a href="#" class="cta-button">Learn more</a>
-                    <a href="#" class="cta-button">Get it on Mac App Store</a>
+                    <a href="#" class="cta-button primary">Get Started for Free</a>
+                    <a href="#" class="cta-button secondary">Learn More</a>
+                    <a href="#" class="cta-button tertiary">See Update Log</a>
                 </div>
-            </div>
+            </section>
         </div>
-    </div>
-    
-    <script>
-        new TypeIt("#typewriter", {
-            strings: "I will meet Johnson in the Curtin University, tomorrow 10pm.",
-            speed: 50,
-            cursor: true,
-            afterComplete: async (instance) => {
-                const text = instance.getElement().innerHTML;
-                const highlightedText = text
-                    .replace("Johnson", '<span class="highlight-person">Johnson</span>')
-                    .replace("Curtin University", '<span class="highlight-location">Curtin University</span>')
-                    .replace("tomorrow 10pm", '<span class="highlight-time">tomorrow 10pm</span>');
-                instance.getElement().innerHTML = highlightedText;
-                
-                setTimeout(() => {
-                    document.getElementById('title').value = "Meet Johnson";
-                    document.getElementById('location').value = "Curtin University";
-                    
-                    const tomorrow = new Date();
-                    tomorrow.setDate(tomorrow.getDate() + 1);
-                    const formattedDate = tomorrow.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-                    document.getElementById('when').value = `${formattedDate}, 10:00 PM`;
-                    
-                    document.getElementById('details').value = "Meeting with Johnson at Curtin University";
-                }, 1000);
-            }
-        }).go();
-    </script>
+    </main>
+    <main class="container">
+      i'm working on API server
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

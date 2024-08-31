@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+body, html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-sizing: border-box;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px 0px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.blog-icon {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.main-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content {
+    flex: 1;
+    max-width: 600px;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 0.2em;
+    margin-top: 60px;
+    line-height: 1.1;
+    color: #1a1a1a;
+}
+
+.accent-dots {
+    color: #4285f4;
+    font-size: 0.8em;
+    vertical-align: super;
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+    color: #4285f4;
+}
+
+p {
+    font-size: 1.25rem;
+    margin-bottom: 2em;
+    max-width: 600px;
+    color: #4a4a4a;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cta-button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cta-button::after {
+    content: '→';
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover::after {
+    transform: translateX(4px);
+}
+
+.cta-button.primary {
+    background-color: #4285f4;
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background-color: #3367d6;
+}
+
+.cta-button.secondary {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+}
+
+.cta-button.secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.cta-button.tertiary {
+    color: #4285f4;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.cta-button.tertiary:hover {
+    color: #3367d6;
+}
+
+.demo {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ensure demo section is responsive */
+}
+
+#typewriter {
+    font-family: 'Inter', monospace;
+    font-size: 1.1rem;
+    min-height: 3em;
+    margin-bottom: 25px;
+    color: #4285f4;
+    font-weight: 500;
+}
+
+.highlight-person { 
+    background-color: rgba(255, 204, 203, 0.5);
+    border-bottom: 2px solid #ff9999;
+}
+
+.highlight-location { 
+    background-color: rgba(144, 238, 144, 0.5);
+    border-bottom: 2px solid #66cc66;
+}
+
+.highlight-time { 
+    background-color: rgba(173, 216, 230, 0.5);
+    border-bottom: 2px solid #6699cc;
+}
+
+@keyframes firework {
+    0% { transform: translate(0, 0); opacity: 1; }
+    50% { transform: translate(var(--tx), var(--ty)); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    animation: firework 0.5s ease-out forwards;
+}
+
+.calendar-form {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    width: 100%; /* Make sure form does not overflow its container */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.calendar-form input[type="text"],
+.calendar-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    resize: none;
+    transition: all 0.3s ease;
+}
+
+.calendar-form input[type="text"]:focus,
+.calendar-form textarea:focus {
+    box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.3);
+    border-color: #4285f4;
+}
+
+.planify-button {
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.planify-button:hover {
+    background-color: #3367d6;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .container {
+        padding: 60px 30px;
+    }
+
+    .navbar {
+        padding: 15px 30px;
+    }
+
+    .main-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .demo, .content {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .subtitle {
+        font-size: 1.75rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.5em;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.25rem;
+    }
+
+    .demo {
+        padding: 20px;
+    }
+
+    #typewriter {
+        font-size: 1rem;
+    }
+
+    .calendar-form input[type="text"],
+    .calendar-form textarea {
+        padding: 10px;
+    }
+
+    .planify-button {
+        padding: 10px 16px;
+        font-size: 1rem;
+    }
+}
